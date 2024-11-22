@@ -1,3 +1,23 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "@rocketseat/eslint-config/next"
+  ],
+  "plugins": [
+    "import",
+    "simple-import-sort"
+  ],
+  "rules": {
+    "import/newline-after-import": "error",
+    "simple-import-sort/imports": "error",
+    // "semi": [
+    //   "error",
+    //   "always"
+    // ],
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": true
+      }
+    ]
+  }
 }
