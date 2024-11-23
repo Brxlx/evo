@@ -23,17 +23,17 @@ export function Features() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              icon: <Wand2 className="w-12 h-12 text-green-500 mb-4" />,
+              icon: <Wand2 className="w-12 h-12 text-primary mb-4" />,
               title: landingPageTexts.pt.features.aiTranscription.title,
               content: landingPageTexts.pt.features.aiTranscription.description,
             },
             {
-              icon: <Globe className="w-12 h-12 text-green-500 mb-4" />,
+              icon: <Globe className="w-12 h-12 text-primary mb-4" />,
               title: landingPageTexts.pt.features.translation.title,
               content: landingPageTexts.pt.features.translation.description,
             },
             {
-              icon: <Zap className="w-12 h-12 text-green-500 mb-4" />,
+              icon: <Zap className="w-12 h-12 text-primary mb-4" />,
               title: landingPageTexts.pt.features.quickProcessing.title,
               content: landingPageTexts.pt.features.quickProcessing.description,
             },
@@ -48,7 +48,7 @@ export function Features() {
               <Card className="hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardHeader>
                   {feature.icon}
-                  <CardTitle>{feature.title}</CardTitle>
+                  <CardTitle className="text-muted-foreground">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>{feature.content}</CardContent>
               </Card>

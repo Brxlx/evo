@@ -20,7 +20,7 @@ export function CTA() {
         <Button
           size="lg"
           variant="default"
-          className="bg-green-500 text-white hover:bg-green-500/80 transition animate-bounce hover:scale-110 duration-750 px-8"
+          className="bg-primary text-white hover:bg-primary/80 transition animate-bounce hover:scale-110 duration-750 px-8"
         >
           {landingPageTexts.pt.cta.button}
         </Button>

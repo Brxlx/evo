@@ -6,8 +6,9 @@ import { useInView } from 'react-intersection-observer';
 
 import { buttonVariants } from '@/app/consts/buttonVariants';
 import { landingPageTexts } from '@/app/consts/texts';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+
+import { Badge } from './Badge';
 
 export function Hero() {
   const [ref, inView] = useInView({
@@ -54,13 +55,18 @@ export function Hero() {
   };
 
   return (
-    <section className="pt-32 pb-20 px-4">
+    <motion.section
+      initial="hidden"
+      animate={inView ? 'visible' : 'hidden'}
+      variants={fadeInUp}
+      className="pt-32 pb-20 px-4"
+    >
       <div className="container mx-auto text-center">
         <Badge />
         <h1 className="text-6xl font-bold mb-6">
           {landingPageTexts.pt.hero.blackTitle}{' '}
           <motion.span
-            className="text-green-500 inline-block"
+            className="text-primary inline-block"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -84,7 +90,7 @@ export function Hero() {
 
         <div className="flex gap-4 justify-center">
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button size="lg" className="bg-green-500 hover:bg-green-600 px-8">
+            <Button size="lg" className="bg-primary/90 hover:bg-primary px-8">
               {landingPageTexts.pt.actions.startForFree}
             </Button>
           </motion.div>
@@ -103,7 +109,7 @@ export function Hero() {
             animate={inView ? 'visible' : 'hidden'}
             variants={fadeInUp}
           >
-            <h3 className="text-4xl font-bold text-green-500">
+            <h3 className="text-4xl font-bold text-primary">
               <AnimatedCounter target={landingPageTexts.pt.metrics.accuracy.value} />%
             </h3>
             <p className="text-gray-600">{landingPageTexts.pt.metrics.accuracy.label}</p>
@@ -115,7 +121,7 @@ export function Hero() {
             variants={fadeInUp}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-4xl font-bold text-green-500">
+            <h3 className="text-4xl font-bold text-primary">
               <AnimatedCounter target={landingPageTexts.pt.metrics.languages.value} />+
             </h3>
             <p className="text-gray-600">{landingPageTexts.pt.metrics.languages.label}</p>
@@ -127,13 +133,13 @@ export function Hero() {
             variants={fadeInUp}
             transition={{ delay: 0.4 }}
           >
-            <h3 className="text-4xl font-bold text-green-500">
+            <h3 className="text-4xl font-bold text-primary">
               <AnimatedCounter target={landingPageTexts.pt.metrics.speed.value} />x
             </h3>
             <p className="text-gray-600">{landingPageTexts.pt.metrics.speed.label}</p>
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

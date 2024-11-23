@@ -14,7 +14,7 @@ export function Nav() {
       <div className="mx-auto w-full flex justify-between items-center">
         <div className="flex items-center gap-2">
           <motion.span
-            className="text-2xl font-bold text-green-500"
+            className="text-2xl font-bold text-muted-foreground"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -23,16 +23,22 @@ export function Nav() {
           </motion.span>
         </div>
         <div className="flex gap-4">
-          <Button variant="link">{landingPageTexts.pt.navigation.features}</Button>
-          <Button variant="link">{landingPageTexts.pt.navigation.pricing}</Button>
-          <Button variant="link">{landingPageTexts.pt.navigation.documentation}</Button>
+          <Button variant="link" className="text-black">
+            {landingPageTexts.pt.navigation.features}
+          </Button>
+          <Button variant="link" className="text-black">
+            {landingPageTexts.pt.navigation.pricing}
+          </Button>
+          <Button variant="link" className="text-black">
+            {landingPageTexts.pt.navigation.documentation}
+          </Button>
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button variant="outline" className="bg-gray-300/60 hover:bg-green-500 ml-5">
+            <Button variant="outline" className="bg-gray-300/60 ml-10">
               {landingPageTexts.pt.navigation.signIn}
             </Button>
           </motion.div>
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button className="bg-green-500 hover:bg-green-600">
+            <Button className="bg-primary/90 hover:bg-primary">
               {landingPageTexts.pt.navigation.getStarted}
             </Button>
           </motion.div>

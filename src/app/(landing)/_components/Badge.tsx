@@ -7,10 +7,10 @@ export function Badge() {
     <div className="animate-fade-in-down">
       <UIBadge
         className="
-          bg-green-100 
-          text-green-800 
-          animate-pulse 
-          hover:bg-green-100
+          bg-secondary/10 
+          text-secondary/80 
+          animate-pulse
+          hover:bg-secondary
           relative
           inline-flex
           items-center
