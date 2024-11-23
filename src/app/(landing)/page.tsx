@@ -2,13 +2,14 @@ import { CTA } from './_components/CTA';
 import { Features } from './_components/Features';
 import { Footer } from './_components/Footer';
 import { Hero } from './_components/Hero';
-import { Nav } from './_components/Nav';
+import { MobileNav, Nav } from './_components/Nav';
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <Nav />
+      <MobileNav />
       {/* Hero Section */}
       <Hero />
       {/* Features Section */}
