@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { buttonVariants } from '@/app/consts/buttonVariants';
+import { landingPageTexts } from '@/app/consts/texts';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -47,7 +48,7 @@ export function Hero() {
         }, 1000 / 60);
         return () => clearInterval(timer);
       }
-    }, [inView, target]);
+    }, [inView, target, duration]);
 
     return <span ref={ref}>{count}</span>;
   };
@@ -57,7 +58,7 @@ export function Hero() {
       <div className="container mx-auto text-center">
         <Badge />
         <h1 className="text-6xl font-bold mb-6">
-          Transform Your Videos with{' '}
+          {landingPageTexts.pt.hero.blackTitle}{' '}
           <motion.span
             className="text-green-500 inline-block"
             initial={{ opacity: 0, scale: 0.5 }}
@@ -68,7 +69,7 @@ export function Hero() {
               delay: 0.2,
             }}
           >
-            AI Magic
+            {landingPageTexts.pt.hero.foregroundTitle}
           </motion.span>
         </h1>
 
@@ -78,19 +79,18 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          Automatically transcribe, translate, and enhance your videos with our cutting-edge AI
-          technology. Save hours of manual work.
+          {landingPageTexts.pt.hero.subtitle}
         </motion.p>
 
         <div className="flex gap-4 justify-center">
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
             <Button size="lg" className="bg-green-500 hover:bg-green-600 px-8">
-              Start For Free
+              {landingPageTexts.pt.actions.startForFree}
             </Button>
           </motion.div>
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
             <Button size="lg" variant="outline" className="px-8">
-              Watch Demo
+              {landingPageTexts.pt.actions.watchDemo}
             </Button>
           </motion.div>
         </div>
@@ -104,9 +104,9 @@ export function Hero() {
             variants={fadeInUp}
           >
             <h3 className="text-4xl font-bold text-green-500">
-              <AnimatedCounter target={99} />%
+              <AnimatedCounter target={landingPageTexts.pt.metrics.accuracy.value} />%
             </h3>
-            <p className="text-gray-600">Transcription Accuracy</p>
+            <p className="text-gray-600">{landingPageTexts.pt.metrics.accuracy.label}</p>
           </motion.div>
           <motion.div
             className="text-center"
@@ -116,9 +116,9 @@ export function Hero() {
             transition={{ delay: 0.2 }}
           >
             <h3 className="text-4xl font-bold text-green-500">
-              <AnimatedCounter target={50} />+
+              <AnimatedCounter target={landingPageTexts.pt.metrics.languages.value} />+
             </h3>
-            <p className="text-gray-600">Supported Languages</p>
+            <p className="text-gray-600">{landingPageTexts.pt.metrics.languages.label}</p>
           </motion.div>
           <motion.div
             className="text-center"
@@ -128,9 +128,9 @@ export function Hero() {
             transition={{ delay: 0.4 }}
           >
             <h3 className="text-4xl font-bold text-green-500">
-              <AnimatedCounter target={10} />x
+              <AnimatedCounter target={landingPageTexts.pt.metrics.speed.value} />x
             </h3>
-            <p className="text-gray-600">Faster Than Manual</p>
+            <p className="text-gray-600">{landingPageTexts.pt.metrics.speed.label}</p>
           </motion.div>
         </div>
       </div>

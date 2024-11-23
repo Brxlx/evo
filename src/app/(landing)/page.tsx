@@ -9,18 +9,13 @@ const LandingPage = () => {
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <Nav />
-
       {/* Hero Section */}
       <Hero />
-
       {/* Features Section */}
       <Features />
-
       {/* Rest of the sections with added motion... */}
-
       {/* CTA Section */}
       <CTA />
-
       {/* Footer */}
       <Footer />
     </div>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 
 import { buttonVariants } from '@/app/consts/buttonVariants';
+import { landingPageTexts } from '@/app/consts/texts';
 import { Button } from '@/components/ui/button';
 
 export function Nav() {
@@ -16,26 +17,17 @@ export function Nav() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Nivo
+            Evo
           </motion.span>
         </div>
         <div className="flex gap-4">
-          <Button variant="ghost" className="hover:bg-green-50">
-            Features
-          </Button>
-          <Button variant="ghost" className="hover:bg-green-50">
-            Pricing
-          </Button>
-          <Button variant="ghost" className="hover:bg-green-50">
-            Documentation
-          </Button>
+          <Button variant="link">{landingPageTexts.pt.navigation.features}</Button>
+          <Button variant="link">{landingPageTexts.pt.navigation.pricing}</Button>
+          <Button variant="link">{landingPageTexts.pt.navigation.documentation}</Button>
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button variant="secondary" className="bg-white hover:bg-gray-100">
-              Sign In
+            <Button className="bg-green-500 hover:bg-green-600">
+              {landingPageTexts.pt.navigation.getStarted}
             </Button>
-          </motion.div>
-          <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button className="bg-green-500 hover:bg-green-600">Get Started</Button>
           </motion.div>
         </div>
       </div>

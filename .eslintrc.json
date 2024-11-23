@@ -4,9 +4,11 @@
   ],
   "plugins": [
     "import",
-    "simple-import-sort"
+    "simple-import-sort",
+    "react-hooks"
   ],
   "rules": {
+    "react-hooks/exhaustive-deps": "error",
     "import/newline-after-import": "error",
     "simple-import-sort/imports": "error",
     // "semi": [
