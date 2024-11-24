@@ -32,16 +32,18 @@ export function Nav() {
           <Button variant="link" className="text-black">
             {landingPageTexts.pt.navigation.documentation}
           </Button>
-          <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button variant="outline" className="bg-gray-300/60 ml-10">
-              {landingPageTexts.pt.navigation.signIn}
-            </Button>
-          </motion.div>
-          <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button className="bg-primary/90 hover:bg-primary">
-              {landingPageTexts.pt.navigation.getStarted}
-            </Button>
-          </motion.div>
+          <div className="flex gap-2 ml-10">
+            <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
+              <Button variant="outline" className="bg-gray-300/60">
+                {landingPageTexts.pt.navigation.signIn}
+              </Button>
+            </motion.div>
+            <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
+              <Button className="bg-primary/90 hover:bg-primary">
+                {landingPageTexts.pt.navigation.getStarted}
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </div>
     </nav>
