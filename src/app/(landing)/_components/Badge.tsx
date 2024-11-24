@@ -7,13 +7,13 @@ export function Badge() {
     <div className="animate-fade-in-down">
       <UIBadge
         className="
-          bg-secondary/10 
+          bg-secondary/50 
           text-secondary/80 
           animate-pulse
-          hover:bg-secondary
           relative
           inline-flex
           items-center
+          hover:bg-secondary/60
         "
       >
         <span className="animate-scale block">New Feature: AI-Powered Video Translation</span>

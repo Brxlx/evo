@@ -6,22 +6,19 @@ import { useState } from 'react';
 
 import { buttonVariants } from '@/app/consts/buttonVariants';
 import { landingPageTexts } from '@/app/consts/texts';
+import { Logo } from '@/components/Logo';
 import { Button } from '@/components/ui/button';
 
 export function Nav() {
   return (
-    <nav className="hidden md:block border-b p-4 fixed w-full bg-white/80 backdrop-blur-sm z-50">
+    <motion.nav
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="hidden md:block border-b p-4 fixed w-full bg-white/80 backdrop-blur-sm z-50"
+    >
       <div className="mx-auto w-full flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <motion.span
-            className="text-2xl font-bold text-muted-foreground"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Evo
-          </motion.span>
-        </div>
+        <Logo />
         <div className="flex gap-4">
           <Button variant="link" className="text-black">
             {landingPageTexts.pt.navigation.features}
@@ -46,7 +43,7 @@ export function Nav() {
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 
