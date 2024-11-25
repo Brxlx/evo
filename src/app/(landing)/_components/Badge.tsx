@@ -16,7 +16,7 @@ export function Badge() {
           hover:bg-secondary/60
         "
       >
-        <span className="animate-scale block">New Feature: AI-Powered Video Translation</span>
+        <span className="animate-scale block">Transcrição de áudio provida por IA</span>
       </UIBadge>
     </div>
   );

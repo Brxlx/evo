@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -11,12 +11,14 @@ import { Button } from '@/components/ui/button';
 import { Badge } from './Badge';
 
 export function Hero() {
+  // Modificado para melhor detecção em mobile
   const [ref, inView] = useInView({
-    triggerOnce: false,
+    triggerOnce: true,
     threshold: 0.1,
+    rootMargin: '50px 0px', // Adiciona margem para triggerar antes
   });
 
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -29,13 +31,15 @@ export function Hero() {
 
   const AnimatedCounter = ({ target, duration = 2 }: { target: number; duration?: number }) => {
     const [count, setCount] = useState(0);
-    const [ref, inView] = useInView({
+    // Configuração específica para o contador
+    const [counterRef, counterInView] = useInView({
       triggerOnce: true,
-      threshold: 0.1,
+      threshold: 0,
+      rootMargin: '50px 0px',
     });
 
     useEffect(() => {
-      if (inView) {
+      if (counterInView) {
         let start = 0;
         const increment = target / (duration * 60);
         const timer = setInterval(() => {
@@ -49,9 +53,9 @@ export function Hero() {
         }, 1000 / 60);
         return () => clearInterval(timer);
       }
-    }, [inView, target, duration]);
+    }, [counterInView, target, duration]);
 
-    return <span ref={ref}>{count}</span>;
+    return <span ref={counterRef}>{count}</span>;
   };
 
   return (
@@ -59,11 +63,12 @@ export function Hero() {
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       variants={fadeInUp}
-      className="pt-32 pb-20 px-4"
+      viewport={{ once: true, margin: '50px 0px' }}
+      className="pt-28 md:pt-32 pb-20 px-4"
     >
       <div className="container mx-auto text-center">
         <Badge />
-        <h1 className="text-6xl font-bold mb-6">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
           {landingPageTexts.pt.hero.blackTitle}{' '}
           <motion.span
             className="text-primary inline-block"
@@ -80,7 +85,7 @@ export function Hero() {
         </h1>
 
         <motion.p
-          className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -88,21 +93,21 @@ export function Hero() {
           {landingPageTexts.pt.hero.subtitle}
         </motion.p>
 
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-col md:flex-row gap-4 justify-center">
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button size="lg" className="bg-primary/90 hover:bg-primary px-8">
+            <Button size="lg" className="bg-primary/90 hover:bg-primary px-8 w-full md:w-auto">
               {landingPageTexts.pt.actions.startForFree}
             </Button>
           </motion.div>
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button size="lg" variant="outline" className="px-8">
+            <Button size="lg" variant="outline" className="px-8 w-full md:w-auto">
               {landingPageTexts.pt.actions.watchDemo}
             </Button>
           </motion.div>
         </div>
 
         {/* Animated Stats */}
-        <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mt-16" ref={ref}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mt-16" ref={ref}>
           <motion.div
             className="text-center"
             initial="hidden"

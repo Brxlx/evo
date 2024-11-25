@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
@@ -52,7 +52,7 @@ export function MobileNav() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     closed: {
       opacity: 0,
       x: '100%',
@@ -73,9 +73,7 @@ export function MobileNav() {
     <nav className="lg:hidden">
       {/* Header fixo com logo e botão do menu */}
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white z-50 px-4 py-3 flex items-center justify-between border-b">
-        <a href="/" className="text-[#1AB760] text-3xl font-bold">
-          Evo
-        </a>
+        <Logo />
         <button
           onClick={toggleMenu}
           className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
@@ -100,19 +98,19 @@ export function MobileNav() {
               <div className="px-6 py-8 space-y-6">
                 <a
                   href="/recursos"
-                  className="block text-xl font-medium text-gray-800 hover:text-[#1AB760] transition-colors"
+                  className="block text-xl font-medium text-gray-800/80 hover:text-gray-900 transition-colors"
                 >
                   Recursos
                 </a>
                 <a
                   href="/precos"
-                  className="block text-xl font-medium text-gray-800 hover:text-[#1AB760] transition-colors"
+                  className="block text-xl font-medium text-gray-800/80 hover:text-gray-900 transition-colors"
                 >
                   Preços
                 </a>
                 <a
                   href="/documentacao"
-                  className="block text-xl font-medium text-gray-800 hover:text-[#1AB760] transition-colors"
+                  className="block text-xl font-medium text-gray-800/80 hover:text-gray-900 transition-colors"
                 >
                   Documentação
                 </a>
@@ -120,10 +118,10 @@ export function MobileNav() {
 
               {/* Botões de ação */}
               <div className="mt-auto p-6 flex flex-col items-center justify-center space-y-4 border-t">
-                <button className="w-4/5 py-3 px-6 text-[#1AB760] font-medium border-2 border-[#1AB760] rounded-lg hover:bg-[#1AB760] hover:text-white transition-colors">
+                <button className="w-4/5 py-3 px-6 text-primary font-medium border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
                   Entrar
                 </button>
-                <button className="w-4/5 py-3 px-6 bg-[#1AB760] text-white font-medium rounded-lg hover:bg-[#159652] transition-colors">
+                <button className="w-4/5 py-3 px-6 bg-secondary text-white font-medium rounded-lg hover:bg-secondary/90 transition-colors">
                   Começar Agora
                 </button>
               </div>

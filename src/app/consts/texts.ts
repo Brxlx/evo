@@ -47,7 +47,7 @@ export const landingPageTexts = {
     cta: {
       title: 'Pronto para Transformar Seus Vídeos?',
       subtitle:
-        'Junte-se a milhares de criadores que estão economizando tempo e alcançando audiências globais com o Nivo.',
+        'Junte-se ao crescente número de criadores que estão economizando tempo e alcançando audiências globais com o Evo.',
       button: 'Comece Gratuitamente',
     },
     actions: {

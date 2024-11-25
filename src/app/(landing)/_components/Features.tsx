@@ -5,8 +5,11 @@ import { Globe, Wand2, Zap } from 'lucide-react';
 
 import { landingPageTexts } from '@/app/consts/texts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export function Features() {
+  const isMobile = useIsMobile();
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -40,15 +43,17 @@ export function Features() {
           ].map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+              viewport={{ once: true, amount: isMobile ? 0.1 : 0.5 }}
+              transition={{ delay: isMobile ? index * 0.15 : index * 0.45 }}
             >
               <Card className="hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardHeader>
                   {feature.icon}
-                  <CardTitle className="text-muted-foreground">{feature.title}</CardTitle>
+                  <CardTitle className="text-muted-foreground break-words">
+                    {feature.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>{feature.content}</CardContent>
               </Card>
