@@ -9,6 +9,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        dark: {
+          DEFAULT: '#0F172A', // Slate-900
+          secondary: '#1E293B', // Slate-800
+        },
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

@@ -15,21 +15,22 @@ export function Nav() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="hidden md:block border-b p-4 fixed w-full bg-white/80 backdrop-blur-sm z-50"
+      className="hidden md:block border-b p-4 fixed w-full bg-white/80 dark:bg-dark dark:text-white backdrop-blur-sm z-50"
     >
       <div className="mx-auto w-full flex justify-between items-center">
         <Logo />
         <div className="flex gap-4">
-          <Button variant="link" className="text-black">
+          <Button variant="link" className="text-black dark:text-white">
             {landingPageTexts.pt.navigation.features}
           </Button>
-          <Button variant="link" className="text-black">
+          <Button variant="link" className="text-black dark:text-white">
             {landingPageTexts.pt.navigation.pricing}
           </Button>
-          <Button variant="link" className="text-black">
+          <Button variant="link" className="text-black dark:text-white">
             {landingPageTexts.pt.navigation.documentation}
           </Button>
           <div className="flex gap-2 ml-10">
+            {/* <ThemeToggle /> */}
             <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
               <Button variant="outline" className="bg-gray-300/60">
                 {landingPageTexts.pt.navigation.signIn}
@@ -72,7 +73,7 @@ export function MobileNav() {
   return (
     <nav className="lg:hidden">
       {/* Header fixo com logo e botão do menu */}
-      <div className="md:hidden fixed top-0 left-0 right-0 bg-white z-50 px-4 py-3 flex items-center justify-between border-b">
+      <div className="md:hidden fixed top-0 left-0 right-0 bg-white dark:bg-dark z-50 px-4 py-3 flex items-center justify-between border-b">
         <Logo />
         <button
           onClick={toggleMenu}
@@ -91,26 +92,26 @@ export function MobileNav() {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 bg-white z-40 pt-16"
+            className="fixed inset-0 bg-white dark:bg-dark z-40 pt-16"
           >
             <div className="flex flex-col h-full">
               {/* Links de navegação */}
               <div className="px-6 py-8 space-y-6">
                 <a
                   href="/recursos"
-                  className="block text-xl font-medium text-gray-800/80 hover:text-gray-900 transition-colors"
+                  className="block text-xl font-medium text-gray-800/80 hover:text-gray-900 dark:text-white/80 dark:text-white transition-colors"
                 >
                   Recursos
                 </a>
                 <a
                   href="/precos"
-                  className="block text-xl font-medium text-gray-800/80 hover:text-gray-900 transition-colors"
+                  className="block text-xl font-medium text-gray-800/80 hover:text-gray-900 dark:text-white/80 dark:text-white transition-colors"
                 >
                   Preços
                 </a>
                 <a
                   href="/documentacao"
-                  className="block text-xl font-medium text-gray-800/80 hover:text-gray-900 transition-colors"
+                  className="block text-xl font-medium text-gray-800/80 hover:text-gray-900 dark:text-white/80 dark:text-white transition-colors"
                 >
                   Documentação
                 </a>

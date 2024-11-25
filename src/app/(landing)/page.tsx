@@ -6,7 +6,7 @@ import { MobileNav, Nav } from './_components/Nav';
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       {/* Navigation */}
       <Nav />
       <MobileNav />

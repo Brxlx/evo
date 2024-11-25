@@ -95,12 +95,15 @@ export function Hero() {
 
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button size="lg" className="bg-primary/90 hover:bg-primary px-8 w-full md:w-auto">
+            <Button
+              size="lg"
+              className="bg-primary/90 hover:bg-primary text-base px-8 w-full md:w-auto"
+            >
               {landingPageTexts.pt.actions.startForFree}
             </Button>
           </motion.div>
           <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
-            <Button size="lg" variant="outline" className="px-8 w-full md:w-auto">
+            <Button size="lg" variant="outline" className="px-8 text-base w-full md:w-auto">
               {landingPageTexts.pt.actions.watchDemo}
             </Button>
           </motion.div>
